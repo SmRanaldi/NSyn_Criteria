@@ -75,6 +75,7 @@ end
 
 %% Mean H profile
 
-for i=1:nSamplesCycle
-    meanH(:,i)=mean(H(:,i:nSamplesCycle:end),2);
-end
+meanH = []; 
+% for i=1:nSamplesCycle
+%     meanH(:,i)=mean(H(:,i:nSamplesCycle:end),2);
+% end

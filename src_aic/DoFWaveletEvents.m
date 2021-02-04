@@ -8,7 +8,7 @@ function [out]=DoFWaveletEvents(signalIn,idxEvents)
 
 for cycle=1:length(idxEvents)-1
 
-    signal=signalIn(idxEvents(cycle):idxEvents(cycle+1));
+    signal=signalIn(idxEvents(cycle)+1:idxEvents(cycle+1));
     signal=signal-mean(signal);
     n=floor(log2(length(signal)));
     
