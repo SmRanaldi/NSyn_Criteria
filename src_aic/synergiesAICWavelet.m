@@ -54,8 +54,9 @@ end
 
 %% DoF fit and AIC curve
 
-[a,b]=ls_fit(linspace(1,nMuscles,nMuscles),DoF); % DoF fit
-AIC=L+a+b.*linspace(1,nMuscles,nMuscles); % AIC value
+% [a,b]=ls_fit(linspace(1,nMuscles,nMuscles),DoF); % DoF fit
+% AIC=L+a+b.*linspace(1,nMuscles,nMuscles); % AIC value
+AIC = L + DoF; % Pure DoF estimation, without fit
 
 %% Model order selection
 
