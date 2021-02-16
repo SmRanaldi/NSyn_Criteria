@@ -20,8 +20,11 @@ switch sw
         M=env(:,idx(2):idx(end-1));
         idx=idx-idx(2)+1;
         idx=idx(2:end-1);
-        [~,~,~,AIC,nSyn,~,VAF,~,~,~,DoF,L]=sAICREvents(M,'rand','min',idx);figure;plot(AIC)
-        hold on;plot(nSyn,AIC(nSyn),'g.','markersize',20);
+        [W,H,meanH,VAF,AIC,R2,VAFGlobal,R2Global,DoFTot,VAFMuscles,DoF,L,nPower,E]=synergiesAICWavelet(env(:,1:end),'rand','min',idx);
+      [tmptmp,nSyn] = min(AIC);
+      figure;plot(AIC);hold on;
+%         plot(L,'k');plot(DoF,'r');
+        plot(nSyn,AIC(nSyn),'g.','markersize',20);
 %         plot(L,'k');plot(DoF,'r');
         %         figure;
         %         for i=1:12
@@ -36,8 +39,9 @@ switch sw
         [emgs,~,~,idx,envTemp]=pedallingEMG('SOGGETTO1.mat',nSamples,20,fe,0);
         
         
-        
-        [W,~,~,AIC,nSyn,~,VAF,~,~,~,DoF,L]=sAICREvents(envTemp(:,1:end),'rand','min',idx);figure;plot(AIC);hold on;
+      [W,H,meanH,VAF,AIC,R2,VAFGlobal,R2Global,DoFTot,VAFMuscles,DoF,L,nPower,E]=sAICREvents(envTemp(:,1:end),'rand','min',idx);
+      [tmptmp,nSyn] = min(AIC);
+      figure;plot(AIC);hold on;
 %         plot(L,'k');plot(DoF,'r');
         plot(nSyn,AIC(nSyn),'g.','markersize',20);
         
