@@ -12,7 +12,7 @@ switch sw
     
     case 1
         
-        [~,~,~,EMG,idx]=genEMGSyn(12,200,par,20,[20,30]);
+        [~,~,~,EMG,idx]=genEMGSyn(15,100,par,5,[5,30]);
         for i=1:size(EMG,1)
             env(i,:)=filtfilt(a,b,abs(EMG(i,:)));
         end
@@ -23,14 +23,7 @@ switch sw
         [W,H,meanH,VAF,AIC,R2,VAFGlobal,R2Global,DoFTot,VAFMuscles,DoF,L,nPower,E]=synergiesAICWavelet(env(:,1:end),'rand','min',idx);
       [tmptmp,nSyn] = min(AIC);
       figure;plot(AIC);hold on;
-%         plot(L,'k');plot(DoF,'r');
         plot(nSyn,AIC(nSyn),'g.','markersize',20);
-%         plot(L,'k');plot(DoF,'r');
-        %         figure;
-        %         for i=1:12
-        %             subplot(4,3,i)
-        %             plot(EMG(i,1:lCycle));
-        %         end
         
     case 2
         
